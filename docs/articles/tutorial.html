@@ -80,7 +80,11 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CAMeRa</span><span class="op">)</span></span>
-<span><span class="co">#&gt; API: public: http://gwas-api.mrcieu.ac.uk/</span></span></code></pre></div>
+<span><span class="co">#&gt; OpenGWAS updates:</span></span>
+<span><span class="co">#&gt;   Date: 2024-03-07</span></span>
+<span><span class="co">#&gt;   [&gt;] There is exceptional load on the OpenGWAS servers.</span></span>
+<span><span class="co">#&gt;   [&gt;] Urgent infrastructure development being performed.</span></span>
+<span><span class="co">#&gt;   [&gt;] See local options for analysis: https://mrcieu.github.io/gwasvcf/.</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
@@ -118,7 +122,7 @@ the causal effect of body mass index (BMI) on coronary heart disease
 using the <a href="https://mrcieu.github.io/TwoSampleMR/" class="external-link">TwoSampleMR</a> package. A
 list of available traits can be obtained using:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">traits</span> <span class="op">&lt;-</span> <span class="fu">TwoSampleMR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/TwoSampleMR/man/available_outcomes.html" class="external-link">available_outcomes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">traits</span> <span class="op">&lt;-</span> <span class="fu">TwoSampleMR</span><span class="fu">::</span><span class="fu"><a href="https://mrcieu.github.io/TwoSampleMR/reference/available_outcomes.html" class="external-link">available_outcomes</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p>You can also browse the available traits here: <a href="https://gwas.mrcieu.ac.uk/" class="external-link uri">https://gwas.mrcieu.ac.uk/</a>. Also see other vignettes on
 this site about how you can use local summary statistics instead.</p>
 <p>Once you obtain the study IDs for the exposure and the outcome, open
@@ -154,101 +158,7 @@ be accessed from: <a href="http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz" class="e
 <span>  radius<span class="op">=</span><span class="fl">50000</span>, </span>
 <span>  clump_pop<span class="op">=</span><span class="st">"EUR"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">x</span></span>
-<span><span class="co">#&gt; &lt;CAMERA&gt;</span></span>
-<span><span class="co">#&gt;   Public:</span></span>
-<span><span class="co">#&gt;     assign: function (...) </span></span>
-<span><span class="co">#&gt;     bfiles: /path/to/ld_files/SAS /path/to/ld_files/AFR /path/to/ld_ ...</span></span>
-<span><span class="co">#&gt;     check_phenotypes: function (ids = self$exposure_ids) </span></span>
-<span><span class="co">#&gt;     clone: function (deep = FALSE) </span></span>
-<span><span class="co">#&gt;     clump_pop: EUR</span></span>
-<span><span class="co">#&gt;     cross_estimate: function (dat = self$harmonised_dat) </span></span>
-<span><span class="co">#&gt;     estimate_instrument_heterogeneity_per_variant: function (dat = self$harmonised_dat) </span></span>
-<span><span class="co">#&gt;     estimate_instrument_specificity: function (instrument, alpha = "bonferroni", winnerscurse = FALSE) </span></span>
-<span><span class="co">#&gt;     expected_replications: NULL</span></span>
-<span><span class="co">#&gt;     exposure_ids: ukb-e-23104_CSA ukb-e-21001_AFR ukb-b-19953 bbj-a-1</span></span>
-<span><span class="co">#&gt;     exposure_metadata: GwasInfo, data.frame</span></span>
-<span><span class="co">#&gt;     extract_instrument_regions: function (radius = self$radius, instrument_raw = self$instrument_raw, </span></span>
-<span><span class="co">#&gt;     extract_instruments: function (exposure_ids = self$exposure_ids, ...) </span></span>
-<span><span class="co">#&gt;     fema_regional_instruments: function (method = "fema", instrument_regions = self$instrument_regions, </span></span>
-<span><span class="co">#&gt;     get_metadata: function (exposure_ids = self$exposure_ids, outcome_ids = self$outcome_ids) </span></span>
-<span><span class="co">#&gt;     harmonise: function (exp = self$instrument_raw, out = self$instrument_outcome) </span></span>
-<span><span class="co">#&gt;     harmonise_deprecated: function (exp = self$instrument_raw, out = self$instrument_outcome) </span></span>
-<span><span class="co">#&gt;     harmonised_dat: NULL</span></span>
-<span><span class="co">#&gt;     harmonised_dat_sem: NULL</span></span>
-<span><span class="co">#&gt;     harmonised_data_check: NULL</span></span>
-<span><span class="co">#&gt;     import: function (x) </span></span>
-<span><span class="co">#&gt;     import_from_local: function (instrument_raw, instrument_outcome, instrument_regions, </span></span>
-<span><span class="co">#&gt;     initialize: function (exposure_ids = NULL, outcome_ids = NULL, pops = NULL, </span></span>
-<span><span class="co">#&gt;     instrument_fema: NULL</span></span>
-<span><span class="co">#&gt;     instrument_fema_regions: NULL</span></span>
-<span><span class="co">#&gt;     instrument_heterogeneity: function (instrument = self$instrument_raw, alpha = "bonferroni", </span></span>
-<span><span class="co">#&gt;     instrument_heterogeneity_per_variant: NULL</span></span>
-<span><span class="co">#&gt;     instrument_maxz: NULL</span></span>
-<span><span class="co">#&gt;     instrument_mscaviar: NULL</span></span>
-<span><span class="co">#&gt;     instrument_outcome: NULL</span></span>
-<span><span class="co">#&gt;     instrument_outcome_regions: NULL</span></span>
-<span><span class="co">#&gt;     instrument_paintor: NULL</span></span>
-<span><span class="co">#&gt;     instrument_raw: NULL</span></span>
-<span><span class="co">#&gt;     instrument_region_zscores: NULL</span></span>
-<span><span class="co">#&gt;     instrument_regions: NULL</span></span>
-<span><span class="co">#&gt;     instrument_specificity: NULL</span></span>
-<span><span class="co">#&gt;     instrument_specificity_summary: NULL</span></span>
-<span><span class="co">#&gt;     instrument_susie: NULL</span></span>
-<span><span class="co">#&gt;     ld_matrices: NULL</span></span>
-<span><span class="co">#&gt;     make_outcome_data: function (exp = self$instrument_raw, p_exp = 0.05/nrow(exp)) </span></span>
-<span><span class="co">#&gt;     mrgxe: function (dat = self$harmonised_dat, variant_list = subset(self$instrument_heterogeneity_per_variant, </span></span>
-<span><span class="co">#&gt;     mrgxe_plot: function (mrgxe_res = self$mrgxe_res) </span></span>
-<span><span class="co">#&gt;     mrgxe_plot_variant: function (variant = self$mrgxe_res %&gt;% dplyr::filter(p.adjust(a_pval, </span></span>
-<span><span class="co">#&gt;     mrgxe_res: NULL</span></span>
-<span><span class="co">#&gt;     mrres: NULL</span></span>
-<span><span class="co">#&gt;     MsCAVIAR_finemap_regions: function (region = self$instrument_regions, ld = self$ld_matrices, </span></span>
-<span><span class="co">#&gt;     mscaviar_results: NULL</span></span>
-<span><span class="co">#&gt;     outcome_ids: ukb-e-411_CSA ukb-e-411_AFR ieu-a-7 bbj-a-109</span></span>
-<span><span class="co">#&gt;     outcome_metadata: GwasInfo, data.frame</span></span>
-<span><span class="co">#&gt;     output: list</span></span>
-<span><span class="co">#&gt;     paintor_finemap_regions: function (region = self$instrument_regions, ld = self$ld_matrices, </span></span>
-<span><span class="co">#&gt;     paintor_results: NULL</span></span>
-<span><span class="co">#&gt;     perform_basic_sem: function (harmonised_dat = self$harmonised_dat_sem) </span></span>
-<span><span class="co">#&gt;     pleiotropy: function (harmonised_dat = self$harmonised_dat) </span></span>
-<span><span class="co">#&gt;     pleiotropy_agreement: NULL</span></span>
-<span><span class="co">#&gt;     pleiotropy_deprecated: function (harmonised_dat = self$harmonised_dat_sem) </span></span>
-<span><span class="co">#&gt;     pleiotropy_outliers: NULL</span></span>
-<span><span class="co">#&gt;     pleiotropy_Q_outliers: NULL</span></span>
-<span><span class="co">#&gt;     pleiotropy_specificity_deprecated: function (harmonised_dat = self$harmonised_dat_sem, sem_result = self$sem_result, </span></span>
-<span><span class="co">#&gt;     plink: /Library/Frameworks/R.framework/Versions/4.3-arm64/Resou ...</span></span>
-<span><span class="co">#&gt;     plot_cross_estimate: function (res = self$mrres, qj_alpha = 0.05) </span></span>
-<span><span class="co">#&gt;     plot_pleiotropy: function (dat = self$pleiotropy_outliers) </span></span>
-<span><span class="co">#&gt;     plot_pleiotropy_heterogeneity: function (dat = self$pleiotropy_Q_outliers, pthresh = 0.05) </span></span>
-<span><span class="co">#&gt;     plot_regional_instruments: function (region, instrument_regions = self$instrument_regions, </span></span>
-<span><span class="co">#&gt;     plot_regional_instruments_maxz: function (instrument_region_zscores = self$instrument_region_zscores, </span></span>
-<span><span class="co">#&gt;     pops: SAS AFR EUR EAS</span></span>
-<span><span class="co">#&gt;     radius: 50000</span></span>
-<span><span class="co">#&gt;     regional_ld_matrices: function (instrument_regions = self$instrument_regions, bfiles = self$bfiles, </span></span>
-<span><span class="co">#&gt;     replication_evaluation: function (instrument = self$instrument_raw, ld = self$ld_matrices) </span></span>
-<span><span class="co">#&gt;     runsem: function (model, data, modname) </span></span>
-<span><span class="co">#&gt;     scan_regional_instruments: function (instrument_raw = self$instrument_raw, instrument_regions = self$instrument_regions) </span></span>
-<span><span class="co">#&gt;     sem_result: NULL</span></span>
-<span><span class="co">#&gt;     set_summary: function () </span></span>
-<span><span class="co">#&gt;     source: OpenGWAS</span></span>
-<span><span class="co">#&gt;     standardise_data: function (dat = self$instrument_raw, standardise_unit = FALSE, </span></span>
-<span><span class="co">#&gt;     standardised_instrument_maxz: NULL</span></span>
-<span><span class="co">#&gt;     standardised_instrument_mscaviar: NULL</span></span>
-<span><span class="co">#&gt;     standardised_instrument_paintor: NULL</span></span>
-<span><span class="co">#&gt;     standardised_instrument_raw: NULL</span></span>
-<span><span class="co">#&gt;     standardised_instrument_susie: NULL</span></span>
-<span><span class="co">#&gt;     standardised_outcome: NULL</span></span>
-<span><span class="co">#&gt;     summary: NULL</span></span>
-<span><span class="co">#&gt;     susie_finemap_regions: function (dat = self$instrument_regions, ld = self$ld_matrices) </span></span>
-<span><span class="co">#&gt;     susie_results: NULL</span></span>
-<span><span class="co">#&gt;   Private:</span></span>
-<span><span class="co">#&gt;     allele_frequency: function (dat = dat) </span></span>
-<span><span class="co">#&gt;     bootstrap: function (wr, wr.se, ivw, ivw.se, nboot = 1000) </span></span>
-<span><span class="co">#&gt;     bootstrap_diff: function (nboot, slope, slope_se, b_out, b_out_se, b_exp, b_exp_se) </span></span>
-<span><span class="co">#&gt;     greedy_remove: function (r, thresh) </span></span>
-<span><span class="co">#&gt;     jackknife2: function (x, theta, ...) </span></span>
-<span><span class="co">#&gt;     sd_standardise: function (dat = dat) </span></span>
-<span><span class="co">#&gt;     susie_overlaps: function (su1, su2)</span></span></code></pre></div>
+<span><span class="va">x</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="check-phenotype-scales-across-ancestries">Check phenotype scales across ancestries<a class="anchor" aria-label="anchor" href="#check-phenotype-scales-across-ancestries"></a>
@@ -466,7 +376,6 @@ and if that assumption holds then then power is improved because of the
 combined information.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">cross_estimate</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coefficients</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 8</span></span></span>
 <span><span class="co">#&gt;   pops  Estimate `Std. Error` `t value` `Pr(&gt;|t|)`     Qj Qjpval   Qdf</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -481,7 +390,7 @@ than any of the others because it is combining similar estimates.</p>
 <p>We can visualise the estimates:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">plot_cross_estimate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-14-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-13-1.png" width="700"></p>
 </div>
 <div class="section level2">
 <h2 id="perform-regional-scan-to-obtain-ld-agnostic-instruments">Perform regional scan to obtain LD agnostic instruments<a class="anchor" aria-label="anchor" href="#perform-regional-scan-to-obtain-ld-agnostic-instruments"></a>
@@ -538,7 +447,7 @@ studies:</p>
 <p>Example</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">plot_regional_instruments</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">instrument_regions</span><span class="op">)</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-18-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-17-1.png" width="700"></p>
 <p>Here, the European top hit is in LD with many other variants in the
 European ancestry, but meta-analysing with the other ancestries
 identified a similarly strongly associated variant in Europeans that is
@@ -596,7 +505,6 @@ selection</p>
 instruments</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">cross_estimate</span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; $coefficients</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 8</span></span></span>
 <span><span class="co">#&gt;   pops  Estimate `Std. Error` `t value` `Pr(&gt;|t|)`    Qj Qjpval   Qdf</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
@@ -609,7 +517,7 @@ instruments</p>
 improved instrument selection.</p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">plot_cross_estimate</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-23-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-22-1.png" width="700"></p>
 <p>Evaluate instrument specificity. First using heterogeneity</p>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">instrument_heterogeneity</span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">instrument_fema</span><span class="op">)</span></span>
@@ -759,13 +667,13 @@ deviation to the outlier discovery population? e.g. look at whether the
 sign is the same for outliers discovered in Europeans:</p>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="va">pleiotropy_agreement</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="va">as.data.frame</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">disc</span> <span class="op">==</span> <span class="st">"EUR"</span> <span class="op">&amp;</span> <span class="va">metric</span><span class="op">==</span><span class="st">"Sign"</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    disc rep nsnp metric    datum    value      pdiff</span></span>
-<span><span class="co">#&gt; 15  EUR SAS    8   Sign Expected 6.142359 0.09065468</span></span>
-<span><span class="co">#&gt; 16  EUR SAS    8   Sign Observed 4.000000 0.09065468</span></span>
-<span><span class="co">#&gt; 19  EUR AFR    8   Sign Expected 5.737231 0.04563731</span></span>
-<span><span class="co">#&gt; 20  EUR AFR    8   Sign Observed 3.000000 0.04563731</span></span>
-<span><span class="co">#&gt; 23  EUR EAS    8   Sign Expected 7.397345 0.01794272</span></span>
-<span><span class="co">#&gt; 24  EUR EAS    8   Sign Observed 5.000000 0.01794272</span></span></code></pre></div>
+<span><span class="co">#&gt;    disc rep nsnp metric    datum    value       pdiff</span></span>
+<span><span class="co">#&gt; 15  EUR SAS    7   Sign Expected 5.410723 0.051289584</span></span>
+<span><span class="co">#&gt; 16  EUR SAS    7   Sign Observed 3.000000 0.051289584</span></span>
+<span><span class="co">#&gt; 19  EUR AFR    7   Sign Expected 4.978778 0.111915732</span></span>
+<span><span class="co">#&gt; 20  EUR AFR    7   Sign Observed 3.000000 0.111915732</span></span>
+<span><span class="co">#&gt; 23  EUR EAS    7   Sign Expected 6.552752 0.007508557</span></span>
+<span><span class="co">#&gt; 24  EUR EAS    7   Sign Observed 4.000000 0.007508557</span></span></code></pre></div>
 <p>Look at the overall relationship of outlier deviations across
 populations</p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
@@ -773,7 +681,7 @@ populations</p>
 <span><span class="co">#&gt; Joining with `by = join_by(pop1)`</span></span>
 <span><span class="co">#&gt; Joining with `by = join_by(pop2, SNP)`</span></span>
 <span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-31-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-30-1.png" width="700"></p>
 <p>Identify any variants that showed substantial differences in
 pleiotropy deviations across populations. Note that sometimes the
 pleiotropy deviation estimate is unstable due to the SNP-exposure
@@ -781,12 +689,12 @@ association being very small. Unstable estimates are attempted to be
 removed automatically from the heterogeneity analysis</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">plot_pleiotropy_heterogeneity</span><span class="op">(</span>pthresh<span class="op">=</span><span class="fl">0.05</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-32-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-31-1.png" width="700"></p>
 <p>No SNPs are showing substantial differences in pleiotropy deviation
 across populations. Plot everything by relaxing the threshold</p>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">plot_pleiotropy_heterogeneity</span><span class="op">(</span>pthresh<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-33-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-32-1.png" width="700"></p>
 </div>
 <div class="section level2">
 <h2 id="mr-gxe">MR GxE<a class="anchor" aria-label="anchor" href="#mr-gxe"></a>
@@ -841,53 +749,52 @@ standard errors)</p>
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">mrgxe</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 95 × 9</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   SNP [95]</span></span></span>
-<span><span class="co">#&gt;    SNP                      a       b   a_se  b_se a_pval b_pval   a_mean b_mean</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 10:118650996_C_T   4.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.14   0.025<span style="text-decoration: underline;">7</span>  1.99 0.039<span style="text-decoration: underline;">8</span> 0.140   5.11<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.12 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 10:134007008_A_C   3.26<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.805  0.027<span style="text-decoration: underline;">2</span>  2.13 0.452  0.353   1.98<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.482</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 10:33955430_C_T    6.10<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> -<span style="color: #BB0000;">0.195</span>  0.037<span style="text-decoration: underline;">4</span>  1.70 0.435  0.454   1.04<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.349</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 10:87490850_A_G   -<span style="color: #BB0000;">1.94</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.030</span><span style="color: #BB0000; text-decoration: underline;">5</span> 0.043<span style="text-decoration: underline;">7</span>  1.82 0.329  0.493  -<span style="color: #BB0000;">2.79</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.218</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 10:99772885_A_G   -<span style="color: #BB0000;">1.95</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.48</span>   0.026<span style="text-decoration: underline;">8</span>  1.77 0.233  0.202  -<span style="color: #BB0000;">2.39</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.45</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11:130795698_G_T  -<span style="color: #BB0000;">1.10</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.17   0.023<span style="text-decoration: underline;">2</span>  1.46 0.318  0.068<span style="text-decoration: underline;">6</span> -<span style="color: #BB0000;">9.49</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  1.96 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11:13315205_C_T    1.68<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.283  0.026<span style="text-decoration: underline;">1</span>  1.89 0.474  0.441   2.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span>  0.364</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11:2858440_A_G    -<span style="color: #BB0000;">8.48</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.42   0.114   3.08 0.229  0.322  -<span style="color: #BB0000;">7.73</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.845</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11:43648368_G_T    1.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.53   0.030<span style="text-decoration: underline;">9</span>  1.74 0.298  0.190   1.12<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.965</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11:45420233_A_G    1.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> -<span style="color: #BB0000;">0.248</span>  0.037<span style="text-decoration: underline;">4</span>  2.43 0.500  0.459  -<span style="color: #BB0000;">1.08</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.406</span></span>
+<span><span class="co">#&gt;    SNP                     a       b   a_se  b_se a_pval b_pval   a_mean  b_mean</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 10:118650996_C_T  4.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.14   0.025<span style="text-decoration: underline;">0</span>  1.50 0.036<span style="text-decoration: underline;">0</span> 0.077<span style="text-decoration: underline;">2</span>  4.53<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.95  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 10:134007008_A_C  3.26<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.805  0.024<span style="text-decoration: underline;">3</span>  2.15 0.447  0.354   3.91<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.642 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 10:33955430_C_T   6.10<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> -<span style="color: #BB0000;">0.195</span>  0.038<span style="text-decoration: underline;">8</span>  1.45 0.437  0.446   1.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> -<span style="color: #BB0000;">0.173</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 10:87490850_A_G  -<span style="color: #BB0000;">1.94</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.030</span><span style="color: #BB0000; text-decoration: underline;">5</span> 0.064<span style="text-decoration: underline;">1</span>  2.48 0.381  0.495  -<span style="color: #BB0000;">2.05</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.069</span><span style="color: #BB0000; text-decoration: underline;">7</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 10:99772885_A_G  -<span style="color: #BB0000;">1.95</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.48</span>   0.029<span style="text-decoration: underline;">4</span>  1.95 0.254  0.225  -<span style="color: #BB0000;">1.66</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.17</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11:130795698_G_T -<span style="color: #BB0000;">1.10</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.17   0.033<span style="text-decoration: underline;">0</span>  1.69 0.370  0.098<span style="text-decoration: underline;">7</span> -<span style="color: #BB0000;">1.24</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.20  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11:13315205_C_T   1.68<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.283  0.024<span style="text-decoration: underline;">0</span>  1.77 0.472  0.437  -<span style="color: #BB0000;">1.96</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.437 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11:2858440_A_G   -<span style="color: #BB0000;">8.48</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.42   0.123   3.61 0.245  0.347  -<span style="color: #BB0000;">9.07</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.30  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11:43648368_G_T   1.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.53   0.028<span style="text-decoration: underline;">6</span>  1.74 0.283  0.189   1.98<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.82  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11:45420233_A_G   1.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> -<span style="color: #BB0000;">0.248</span>  0.034<span style="text-decoration: underline;">4</span>  2.35 0.500  0.458  -<span style="color: #BB0000;">5.76</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> -<span style="color: #BB0000;">0.360</span> </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 85 more rows</span></span></span>
 <span><span class="va">x</span><span class="op">$</span><span class="va">mrgxe_res</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 95 × 9</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># Groups:   SNP [95]</span></span></span>
-<span><span class="co">#&gt;    SNP                      a       b   a_se  b_se a_pval b_pval   a_mean b_mean</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 10:118650996_C_T   4.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.14   0.025<span style="text-decoration: underline;">7</span>  1.99 0.039<span style="text-decoration: underline;">8</span> 0.140   5.11<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.12 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 10:134007008_A_C   3.26<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.805  0.027<span style="text-decoration: underline;">2</span>  2.13 0.452  0.353   1.98<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.482</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 10:33955430_C_T    6.10<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> -<span style="color: #BB0000;">0.195</span>  0.037<span style="text-decoration: underline;">4</span>  1.70 0.435  0.454   1.04<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.349</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 10:87490850_A_G   -<span style="color: #BB0000;">1.94</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.030</span><span style="color: #BB0000; text-decoration: underline;">5</span> 0.043<span style="text-decoration: underline;">7</span>  1.82 0.329  0.493  -<span style="color: #BB0000;">2.79</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.218</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 10:99772885_A_G   -<span style="color: #BB0000;">1.95</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.48</span>   0.026<span style="text-decoration: underline;">8</span>  1.77 0.233  0.202  -<span style="color: #BB0000;">2.39</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.45</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11:130795698_G_T  -<span style="color: #BB0000;">1.10</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.17   0.023<span style="text-decoration: underline;">2</span>  1.46 0.318  0.068<span style="text-decoration: underline;">6</span> -<span style="color: #BB0000;">9.49</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  1.96 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11:13315205_C_T    1.68<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.283  0.026<span style="text-decoration: underline;">1</span>  1.89 0.474  0.441   2.00<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span>  0.364</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11:2858440_A_G    -<span style="color: #BB0000;">8.48</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.42   0.114   3.08 0.229  0.322  -<span style="color: #BB0000;">7.73</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.845</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11:43648368_G_T    1.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.53   0.030<span style="text-decoration: underline;">9</span>  1.74 0.298  0.190   1.12<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.965</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11:45420233_A_G    1.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> -<span style="color: #BB0000;">0.248</span>  0.037<span style="text-decoration: underline;">4</span>  2.43 0.500  0.459  -<span style="color: #BB0000;">1.08</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  0.406</span></span>
+<span><span class="co">#&gt;    SNP                     a       b   a_se  b_se a_pval b_pval   a_mean  b_mean</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>               <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 10:118650996_C_T  4.50<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.14   0.025<span style="text-decoration: underline;">0</span>  1.50 0.036<span style="text-decoration: underline;">0</span> 0.077<span style="text-decoration: underline;">2</span>  4.53<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.95  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 10:134007008_A_C  3.26<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.805  0.024<span style="text-decoration: underline;">3</span>  2.15 0.447  0.354   3.91<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.642 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 10:33955430_C_T   6.10<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span> -<span style="color: #BB0000;">0.195</span>  0.038<span style="text-decoration: underline;">8</span>  1.45 0.437  0.446   1.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> -<span style="color: #BB0000;">0.173</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 10:87490850_A_G  -<span style="color: #BB0000;">1.94</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.030</span><span style="color: #BB0000; text-decoration: underline;">5</span> 0.064<span style="text-decoration: underline;">1</span>  2.48 0.381  0.495  -<span style="color: #BB0000;">2.05</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">0.069</span><span style="color: #BB0000; text-decoration: underline;">7</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 10:99772885_A_G  -<span style="color: #BB0000;">1.95</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.48</span>   0.029<span style="text-decoration: underline;">4</span>  1.95 0.254  0.225  -<span style="color: #BB0000;">1.66</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span> -<span style="color: #BB0000;">1.17</span>  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 11:130795698_G_T -<span style="color: #BB0000;">1.10</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.17   0.033<span style="text-decoration: underline;">0</span>  1.69 0.370  0.098<span style="text-decoration: underline;">7</span> -<span style="color: #BB0000;">1.24</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  2.20  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 11:13315205_C_T   1.68<span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.283  0.024<span style="text-decoration: underline;">0</span>  1.77 0.472  0.437  -<span style="color: #BB0000;">1.96</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-3</span>  0.437 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 11:2858440_A_G   -<span style="color: #BB0000;">8.48</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.42   0.123   3.61 0.245  0.347  -<span style="color: #BB0000;">9.07</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.30  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 11:43648368_G_T   1.64<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.53   0.028<span style="text-decoration: underline;">6</span>  1.74 0.283  0.189   1.98<span style="color: #949494;">e</span><span style="color: #BB0000;">-2</span>  1.82  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 11:45420233_A_G   1.75<span style="color: #949494;">e</span><span style="color: #BB0000;">-5</span> -<span style="color: #BB0000;">0.248</span>  0.034<span style="text-decoration: underline;">4</span>  2.35 0.500  0.458  -<span style="color: #BB0000;">5.76</span><span style="color: #949494;">e</span><span style="color: #BB0000;">-4</span> -<span style="color: #BB0000;">0.360</span> </span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 85 more rows</span></span></span></code></pre></div>
 <p>This is the distribution of the estimate of the pleiotropic effect of
 each SNP that showed heterogeneity</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">mrgxe_plot</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-36-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-35-1.png" width="700"></p>
 <p>Any evidence of SNPs with substantial heterogeneity?</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="va">mrgxe_res</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/p.adjust.html" class="external-link">p.adjust</a></span><span class="op">(</span><span class="va">a_pval</span>, <span class="st">"fdr"</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">0.05</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 9</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># Groups:   SNP [6]</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 9</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># Groups:   SNP [5]</span></span></span>
 <span><span class="co">#&gt;   SNP                    a       b   a_se  b_se  a_pval b_pval  a_mean b_mean</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 10:118650996_C_T  0.045<span style="text-decoration: underline;">0</span>  2.14   0.025<span style="text-decoration: underline;">7</span>  1.99 0.039<span style="text-decoration: underline;">8</span>  0.140   0.051<span style="text-decoration: underline;">1</span>  2.12 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 13:58259492_A_C  -<span style="color: #BB0000;">0.080</span><span style="color: #BB0000; text-decoration: underline;">4</span> -<span style="color: #BB0000;">4.47</span>   0.041<span style="text-decoration: underline;">6</span>  3.16 0.026<span style="text-decoration: underline;">6</span>  0.078<span style="text-decoration: underline;">2</span> -<span style="color: #BB0000;">0.073</span><span style="color: #BB0000; text-decoration: underline;">7</span> -<span style="color: #BB0000;">2.60</span> </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 16:76895693_A_G   0.056<span style="text-decoration: underline;">7</span>  2.19   0.028<span style="text-decoration: underline;">8</span>  2.47 0.024<span style="text-decoration: underline;">7</span>  0.188   0.055<span style="text-decoration: underline;">5</span>  1.89 </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 19:33953354_G_T  -<span style="color: #BB0000;">0.068</span><span style="color: #BB0000; text-decoration: underline;">1</span> -<span style="color: #BB0000;">0.086</span><span style="color: #BB0000; text-decoration: underline;">9</span> 0.024<span style="text-decoration: underline;">1</span>  1.81 0.002<span style="text-decoration: underline;">33</span> 0.481  -<span style="color: #BB0000;">0.063</span><span style="color: #BB0000; text-decoration: underline;">5</span>  0.121</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 3:48118703_C_T    0.040<span style="text-decoration: underline;">6</span>  1.42   0.022<span style="text-decoration: underline;">8</span>  2.65 0.037<span style="text-decoration: underline;">3</span>  0.297   0.036<span style="text-decoration: underline;">8</span>  0.630</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 9:28418511_A_G    0.083<span style="text-decoration: underline;">5</span> -<span style="color: #BB0000;">3.03</span>   0.039<span style="text-decoration: underline;">7</span>  1.84 0.017<span style="text-decoration: underline;">8</span>  0.049<span style="text-decoration: underline;">8</span>  0.081<span style="text-decoration: underline;">7</span> -<span style="color: #BB0000;">2.90</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 10:118650996_C_T  0.045<span style="text-decoration: underline;">0</span>  2.14   0.025<span style="text-decoration: underline;">0</span>  1.50 0.036<span style="text-decoration: underline;">0</span>  0.077<span style="text-decoration: underline;">2</span>  0.045<span style="text-decoration: underline;">3</span>  1.95 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 13:58259492_A_C  -<span style="color: #BB0000;">0.080</span><span style="color: #BB0000; text-decoration: underline;">4</span> -<span style="color: #BB0000;">4.47</span>   0.039<span style="text-decoration: underline;">8</span>  3.36 0.021<span style="text-decoration: underline;">7</span>  0.091<span style="text-decoration: underline;">5</span> -<span style="color: #BB0000;">0.073</span><span style="color: #BB0000; text-decoration: underline;">8</span> -<span style="color: #BB0000;">3.00</span> </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 16:76895693_A_G   0.056<span style="text-decoration: underline;">7</span>  2.19   0.026<span style="text-decoration: underline;">8</span>  2.88 0.017<span style="text-decoration: underline;">2</span>  0.224   0.055<span style="text-decoration: underline;">8</span>  2.35 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 19:33953354_G_T  -<span style="color: #BB0000;">0.068</span><span style="color: #BB0000; text-decoration: underline;">1</span> -<span style="color: #BB0000;">0.086</span><span style="color: #BB0000; text-decoration: underline;">9</span> 0.027<span style="text-decoration: underline;">5</span>  1.83 0.006<span style="text-decoration: underline;">62</span> 0.481  -<span style="color: #BB0000;">0.059</span><span style="color: #BB0000; text-decoration: underline;">7</span> -<span style="color: #BB0000;">0.246</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 9:28418511_A_G    0.083<span style="text-decoration: underline;">5</span> -<span style="color: #BB0000;">3.03</span>   0.042<span style="text-decoration: underline;">8</span>  1.74 0.025<span style="text-decoration: underline;">4</span>  0.041<span style="text-decoration: underline;">1</span>  0.074<span style="text-decoration: underline;">9</span> -<span style="color: #BB0000;">3.00</span></span></span></code></pre></div>
 <p>It’s worth always checking if these look credible e.g. this plots the
 SNP-exposure against SNP-outcome associations for the identified SNPs.
 You’d expect to see a slope reflecting the causal effect estimate with
@@ -895,7 +802,7 @@ the intercept reflecting the pleiotropic association.</p>
 <div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">$</span><span class="fu">mrgxe_plot_variant</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
-<p><img src="tutorial_files/figure-html/unnamed-chunk-38-1.png" width="700"></p>
+<p><img src="tutorial_files/figure-html/unnamed-chunk-37-1.png" width="700"></p>
 <p>In this case the associations are very noisy, and it would be
 difficult to justify that they show convincing evidence of the
 pleiotropy estimate.</p>

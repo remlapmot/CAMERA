@@ -89,14 +89,12 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 <li><p><a href="#method-CAMERA-mrgxe_plot"><code>CAMERA$mrgxe_plot()</code></a></p></li>
 <li><p><a href="#method-CAMERA-mrgxe_plot_variant"><code>CAMERA$mrgxe_plot_variant()</code></a></p></li>
 <li><p><a href="#method-CAMERA-make_outcome_data"><code>CAMERA$make_outcome_data()</code></a></p></li>
-<li><p><a href="#method-CAMERA-harmonise_deprecated"><code>CAMERA$harmonise_deprecated()</code></a></p></li>
+<li><p><a href="#method-CAMERA-make_outcome_local"><code>CAMERA$make_outcome_local()</code></a></p></li>
 <li><p><a href="#method-CAMERA-harmonise"><code>CAMERA$harmonise()</code></a></p></li>
 <li><p><a href="#method-CAMERA-set_summary"><code>CAMERA$set_summary()</code></a></p></li>
 <li><p><a href="#method-CAMERA-pleiotropy"><code>CAMERA$pleiotropy()</code></a></p></li>
 <li><p><a href="#method-CAMERA-plot_pleiotropy"><code>CAMERA$plot_pleiotropy()</code></a></p></li>
 <li><p><a href="#method-CAMERA-plot_pleiotropy_heterogeneity"><code>CAMERA$plot_pleiotropy_heterogeneity()</code></a></p></li>
-<li><p><a href="#method-CAMERA-pleiotropy_deprecated"><code>CAMERA$pleiotropy_deprecated()</code></a></p></li>
-<li><p><a href="#method-CAMERA-pleiotropy_specificity_deprecated"><code>CAMERA$pleiotropy_specificity_deprecated()</code></a></p></li>
 <li><p><a href="#method-CAMERA-perform_basic_sem"><code>CAMERA$perform_basic_sem()</code></a></p></li>
 <li><p><a href="#method-CAMERA-runsem"><code>CAMERA$runsem()</code></a></p></li>
 <li><p><a href="#method-CAMERA-standardise_data"><code>CAMERA$standardise_data()</code></a></p></li>
@@ -138,6 +136,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 <span>  <span class="va">instrument_outcome_regions</span>,</span>
 <span>  <span class="va">exposure_ids</span>,</span>
 <span>  <span class="va">outcome_ids</span>,</span>
+<span>  <span class="va">pops</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
@@ -258,7 +257,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 
 <div class="section">
 <h4 id="usage-9">Usage<a class="anchor" aria-label="anchor" href="#usage-9"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">plot_cross_estimate</span><span class="op">(</span>res <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">mrres</span>, qj_alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">plot_cross_estimate</span><span class="op">(</span>est <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">mrres</span>, qj_alpha <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 
@@ -458,14 +457,15 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 </div>
 
 
-</div><p></p><hr><a id="method-CAMERA-harmonise_deprecated"></a><div class="section">
-<h3 id="method-harmonise-deprecated-">Method <code>harmonise_deprecated()</code><a class="anchor" aria-label="anchor" href="#method-harmonise-deprecated-"></a></h3>
+</div><p></p><hr><a id="method-CAMERA-make_outcome_local"></a><div class="section">
+<h3 id="method-make-outcome-local-">Method <code>make_outcome_local()</code><a class="anchor" aria-label="anchor" href="#method-make-outcome-local-"></a></h3>
 
 <div class="section">
 <h4 id="usage-26">Usage<a class="anchor" aria-label="anchor" href="#usage-26"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">harmonise_deprecated</span><span class="op">(</span></span>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">make_outcome_local</span><span class="op">(</span></span>
 <span>  exp <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">instrument_raw</span>,</span>
-<span>  out <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">instrument_outcome</span></span>
+<span>  out <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">instrument_outcome_regions</span>,</span>
+<span>  p_exp <span class="op">=</span> <span class="fl">0.05</span><span class="op">/</span><span class="fu">nreow</span><span class="op">(</span><span class="va">exp</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -493,7 +493,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 
 <div class="section">
 <h4 id="usage-29">Usage<a class="anchor" aria-label="anchor" href="#usage-29"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">pleiotropy</span><span class="op">(</span>harmonised_dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">harmonised_dat</span><span class="op">)</span></span></code></pre></div><p></p></div>
+<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">pleiotropy</span><span class="op">(</span>harmonised_dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">harmonised_dat</span>, mrres <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">mrres</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
 
@@ -518,33 +518,11 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 </div>
 
 
-</div><p></p><hr><a id="method-CAMERA-pleiotropy_deprecated"></a><div class="section">
-<h3 id="method-pleiotropy-deprecated-">Method <code>pleiotropy_deprecated()</code><a class="anchor" aria-label="anchor" href="#method-pleiotropy-deprecated-"></a></h3>
-
-<div class="section">
-<h4 id="usage-32">Usage<a class="anchor" aria-label="anchor" href="#usage-32"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">pleiotropy_deprecated</span><span class="op">(</span>harmonised_dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">harmonised_dat_sem</span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-
-</div><p></p><hr><a id="method-CAMERA-pleiotropy_specificity_deprecated"></a><div class="section">
-<h3 id="method-pleiotropy-specificity-deprecated-">Method <code>pleiotropy_specificity_deprecated()</code><a class="anchor" aria-label="anchor" href="#method-pleiotropy-specificity-deprecated-"></a></h3>
-
-<div class="section">
-<h4 id="usage-33">Usage<a class="anchor" aria-label="anchor" href="#usage-33"></a></h4>
-<p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">pleiotropy_specificity_deprecated</span><span class="op">(</span></span>
-<span>  harmonised_dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">harmonised_dat_sem</span>,</span>
-<span>  sem_result <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">sem_result</span>,</span>
-<span>  pleioropy <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">pleiotropy_dat</span></span>
-<span><span class="op">)</span></span></code></pre></div><p></p></div>
-</div>
-
-
 </div><p></p><hr><a id="method-CAMERA-perform_basic_sem"></a><div class="section">
 <h3 id="method-perform-basic-sem-">Method <code>perform_basic_sem()</code><a class="anchor" aria-label="anchor" href="#method-perform-basic-sem-"></a></h3>
 
 <div class="section">
-<h4 id="usage-34">Usage<a class="anchor" aria-label="anchor" href="#usage-34"></a></h4>
+<h4 id="usage-32">Usage<a class="anchor" aria-label="anchor" href="#usage-32"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">perform_basic_sem</span><span class="op">(</span>harmonised_dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">harmonised_dat_sem</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -553,7 +531,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 <h3 id="method-runsem-">Method <code>runsem()</code><a class="anchor" aria-label="anchor" href="#method-runsem-"></a></h3>
 
 <div class="section">
-<h4 id="usage-35">Usage<a class="anchor" aria-label="anchor" href="#usage-35"></a></h4>
+<h4 id="usage-33">Usage<a class="anchor" aria-label="anchor" href="#usage-33"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">runsem</span><span class="op">(</span><span class="va">model</span>, <span class="va">data</span>, <span class="va">modname</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 
@@ -562,7 +540,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 <h3 id="method-standardise-data-">Method <code>standardise_data()</code><a class="anchor" aria-label="anchor" href="#method-standardise-data-"></a></h3>
 
 <div class="section">
-<h4 id="usage-36">Usage<a class="anchor" aria-label="anchor" href="#usage-36"></a></h4>
+<h4 id="usage-34">Usage<a class="anchor" aria-label="anchor" href="#usage-34"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">standardise_data</span><span class="op">(</span></span>
 <span>  dat <span class="op">=</span> <span class="va">self</span><span class="op">$</span><span class="va">instrument_raw</span>,</span>
 <span>  standardise_unit <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -575,7 +553,7 @@ Using a summary set, identify set of instruments for the traits, and peform SEM 
 </div><p></p><hr><a id="method-CAMERA-clone"></a><div class="section">
 <h3 id="method-clone-">Method <code>clone()</code><a class="anchor" aria-label="anchor" href="#method-clone-"></a></h3>
 <p>The objects of this class are cloneable with this method.</p><div class="section">
-<h4 id="usage-37">Usage<a class="anchor" aria-label="anchor" href="#usage-37"></a></h4>
+<h4 id="usage-35">Usage<a class="anchor" aria-label="anchor" href="#usage-35"></a></h4>
 <p></p><div class="r"><div class="sourceCode"><pre><code><span><span class="va">CAMERA</span><span class="op">$</span><span class="fu">clone</span><span class="op">(</span>deep <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div><p></p></div>
 </div>
 

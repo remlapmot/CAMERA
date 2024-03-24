@@ -80,7 +80,11 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">CAMeRa</span><span class="op">)</span></span>
-<span><span class="co">#&gt; API: public: http://gwas-api.mrcieu.ac.uk/</span></span></code></pre></div>
+<span><span class="co">#&gt; OpenGWAS updates:</span></span>
+<span><span class="co">#&gt;   Date: 2024-03-07</span></span>
+<span><span class="co">#&gt;   [&gt;] There is exceptional load on the OpenGWAS servers.</span></span>
+<span><span class="co">#&gt;   [&gt;] Urgent infrastructure development being performed.</span></span>
+<span><span class="co">#&gt;   [&gt;] See local options for analysis: https://mrcieu.github.io/gwasvcf/.</span></span></code></pre></div>
 <p>You can supply to CAMERA from text files or from OpenGWAS (currently
 not a mixture of both, though you can download the studies in OpenGWAS
 to be used as raw files).</p>
@@ -373,7 +377,8 @@ arrange the data as described above, generating
 <span>  instrument_regions<span class="op">=</span><span class="va">instrument_regions</span>, </span>
 <span>  instrument_outcome_regions<span class="op">=</span><span class="va">instrument_outcome_regions</span>, </span>
 <span>  exposure_ids<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">instrument_raw</span><span class="op">$</span><span class="va">id</span><span class="op">)</span>, </span>
-<span>  outcome_ids<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">instrument_outcome_regions</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span>  outcome_ids<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">instrument_outcome_regions</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  pops<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AFR"</span>, <span class="st">"EAS"</span>, <span class="st">"EUR"</span>, <span class="st">"AMR"</span>, <span class="st">"SAS"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; list()</span></span>
 <span></span>
