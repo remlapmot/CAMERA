@@ -1,5 +1,3 @@
-context("pleiotropy")
-
 example_file <- system.file(file.path("extdata", "example-CAMERA.rds"), package = "CAMeRa")
 xold <- readRDS(example_file)
 x <- CAMERA$new()

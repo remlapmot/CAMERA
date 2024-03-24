@@ -7,6 +7,10 @@
 fixed_effects_meta_analysis(beta_vec, se_vec, infl = 10000)
 }
 \arguments{
+\item{beta_vec}{Vector of betas}
+
+\item{se_vec}{Vector of ses}
+
 \item{infl}{Inflation factor - how much larger is the estimate than the estimate of the tightest SE - for use in removing unreliable estimates}
 }
 \value{

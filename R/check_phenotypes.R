@@ -15,7 +15,7 @@ CAMERA$set("public", "check_phenotypes", function(ids = self$exposure_ids) {
 
           res <- suppressMessages(TwoSampleMR::mr(d, method = "mr_ivw")) %>%
             {
-              tibble::tibble(Reference = i, Replication = j, nsnp = .$nsnp, agreement = .$b, se = .$se, pval = .$pval)
+              dplyr::tibble(Reference = i, Replication = j, nsnp = .$nsnp, agreement = .$b, se = .$se, pval = .$pval)
             }
 
           message(paste0("Instrument associations between ", i, " and ", j, " is ", round(res$agreement, 3), "; NSNP=", res$nsnp))

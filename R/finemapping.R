@@ -130,7 +130,7 @@ CAMERA$set("public", "susie_finemap_regions", function(dat = self$instrument_reg
 
 
 #' @importFrom dplyr bind_rows mutate arrange
-#' @importFrom tibble tibble
+#' @importFrom dplyr tibble
 CAMERA$set("private", "susie_overlaps", function(su1, su2) {
   l <- list()
   k <- 1
@@ -143,7 +143,7 @@ CAMERA$set("private", "susie_overlaps", function(su1, su2) {
       if (any(s1[[i]] %in% s2[[j]])) {
         ind <- s1[[i]] %in% s2[[j]]
         v <- s1[[i]][ind]
-        l[[k]] <- tibble::tibble(s1 = i, s2 = j, v = v)
+        l[[k]] <- dplyr::tibble(s1 = i, s2 = j, v = v)
         k <- k + 1
       }
     }
@@ -180,7 +180,7 @@ CAMERA$set("public", "paintor_finemap_regions", function(region = self$instrumen
     o <- list()
     lapply(1:length(id), function(id) {
       o[[paste0("ZSCORE.P", id)]] <- region[[i]][[id]]$beta / region[[i]][[id]]$se
-      return(tibble::as_tibble(o))
+      return(dplyr::as_tibble(o))
     }) %>% dplyr::bind_cols()
   })
 
@@ -188,7 +188,7 @@ CAMERA$set("public", "paintor_finemap_regions", function(region = self$instrumen
     tryCatch(
       {
         l <- list()
-        l <- tibble::tibble(CHR = region[[i]][[1]]$chr, POS = region[[i]][[1]]$position, RSID = region[[i]][[1]]$rsid)
+        l <- dplyr::tibble(CHR = region[[i]][[1]]$chr, POS = region[[i]][[1]]$position, RSID = region[[i]][[1]]$rsid)
         l <- l %>% dplyr::bind_cols(., zs[[i]])
         ldsnp <- strsplit(rownames(ld[[i]][[1]]), "_") %>% sapply(., function(x) x[1])
         snp <- l$RSID %in% ldsnp
@@ -205,7 +205,7 @@ CAMERA$set("public", "paintor_finemap_regions", function(region = self$instrumen
   anno <- lapply(1:nid, function(i) {
     tryCatch(
       {
-        tibble::tibble(null = rep(1, nrow(locus[[i]])))
+        dplyr::tibble(null = rep(1, nrow(locus[[i]])))
       },
       error = function(e) {
         cat("ERROR :", conditionMessage(e), "\n")
@@ -350,7 +350,7 @@ CAMERA$set("public", "MsCAVIAR_finemap_regions", function(region = self$instrume
       index <- which(zs$rsid %in% ldsnp)
       zs <- zs[index, ]
       write.table(zs, file = file.path(workdir, paste0("z_", i, "_", id, ".zscores")), row = F, col = F, qu = F)
-      return(tibble::as_tibble(zs))
+      return(dplyr::as_tibble(zs))
     })
   })
 

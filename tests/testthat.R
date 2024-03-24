@@ -1,4 +1,4 @@
 library(testthat)
-library(CAMERA)
+library(CAMeRa)
 
-test_check("CAMERA")
+test_check("CAMeRa")

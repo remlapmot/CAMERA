@@ -42,10 +42,6 @@ Overview:
 - Use cross-population instrument-exposure heterogeneity in MR GxE framework to estimate pleiotropy distributions
 - Saving and loading data
 
-```{r, echo=FALSE, message=FALSE}
-ieugwasr::select_api("private")
-```
-
 ## Initialise data
 
 CAMeRa begins by choosing an exposure and outcome hypothesis that can be tested in multi-ancestral populations. Here, we will be estimating the causal effect of body mass index (BMI) on coronary heart disease (CHD) in European (EUR), East Asian (EAS), African (AFR) and South Asian (SAS) ancestries.
@@ -68,7 +64,7 @@ Once you obtain the study IDs for the exposure and the outcome, open R6 class en
 Plink (ver.1.90) and LD reference data are required to identify instruments that can be used for both populations. LD reference data can be accessed from: http://fileserve.mrcieu.ac.uk/ld/1kg.v3.tgz.
 
 
-```{r}
+```{r, eval=FALSE}
 bfile_dir <- "/path/to/ld_files"
 x <- CAMERA$new(
   exposure_ids=c(

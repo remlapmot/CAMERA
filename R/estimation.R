@@ -39,8 +39,7 @@ CAMERA$set("public", "cross_estimate", function(dat=self$harmonised_dat) {
 #' @param dat A data frame containing the harmonised data. It should have the columns `beta.y`, `beta.x`, `se.y`, and `pops`. If not provided, the method uses the `harmonised_dat` attribute of the `CAMERA` object.
 #'
 #' @return A list containing the results of the analysis. The list includes the coefficients of the fitted models, and the results of the heterogeneity analysis.
-CAMERA$set("public", "plot_cross_estimate", function(res=self$mrres, qj_alpha=0.05) {
-  est <- res$coefficients
+CAMERA$set("public", "plot_cross_estimate", function(est=self$mrres, qj_alpha=0.05) {
   est$what <- "Pops"
   est$what[est$pops=="All"] <- "All"
   p <- ggplot2::ggplot(est, ggplot2::aes(x=Estimate, y=pops)) +
@@ -69,8 +68,8 @@ identify_blownup_estimates <- function(b, se, infl) {
 
 #' Perform fixed effects meta analysis for one association
 #' 
-#' @param beta_vec
-#' @param se_vec
+#' @param beta_vec Vector of betas
+#' @param se_vec Vector of ses
 #' @param infl Inflation factor - how much larger is the estimate than the estimate of the tightest SE - for use in removing unreliable estimates
 #' 
 #' @export

@@ -1,6 +1,3 @@
-context("CAMERA")
-library(CAMERA)
-
 test_that("initialization", {
   x <- CAMERA$new(
     exposure_ids=c("ieu-a-2", "bbj-a-1"),

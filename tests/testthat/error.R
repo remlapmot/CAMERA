@@ -8,3 +8,4 @@ expect_no_error <- function(expr) {
   expect(!err, "Expected no error, but had error.")
   invisible(NULL)
 }
+

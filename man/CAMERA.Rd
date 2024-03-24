@@ -194,7 +194,7 @@ Create a new dataset and initialise an R interface
 \if{latex}{\out{\hypertarget{method-CAMERA-plot_cross_estimate}{}}}
 \subsection{Method \code{plot_cross_estimate()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{CAMERA$plot_cross_estimate(res = self$mrres, qj_alpha = 0.05)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{CAMERA$plot_cross_estimate(est = self$mrres, qj_alpha = 0.05)}\if{html}{\out{</div>}}
 }
 
 }

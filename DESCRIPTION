@@ -14,9 +14,10 @@ Depends:
 Imports: 
     dplyr,
     ggplot2,
-    ieugwasr,
+    ieugwasr (>= 0.1.8),
     magrittr,
     tidyr,
+    utils
 Suggests: 
     RadialMR,
     winnerscurse,

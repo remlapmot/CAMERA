@@ -16,7 +16,7 @@ prop_overlap <- function(b_disc, b_rep, se_disc, se_rep, alpha) {
   p_sign <- pnorm(-abs(b_disc) / se_disc) * pnorm(-abs(b_disc) / se_rep) + ((1 - pnorm(-abs(b_disc) / se_disc)) * (1 - pnorm(-abs(b_disc) / se_rep)))
   p_sig <- pnorm(-abs(b_disc) / se_rep + qnorm(alpha / 2)) + (1 - pnorm(-abs(b_disc) / se_rep - qnorm(alpha / 2)))
   p_rep <- pnorm(abs(b_rep) / se_rep, lower.tail = FALSE)
-  res <- tibble::tibble(
+  res <- dplyr::tibble(
     nsnp = length(b_disc),
     metric = c("Sign", "Sign", "P-value", "P-value"),
     datum = c("Expected", "Observed", "Expected", "Observed"),
@@ -80,7 +80,7 @@ CAMERA$set("public", "instrument_heterogeneity", function(instrument = self$inst
             dplyr::select(SNP = rsid, x = beta.x, y = beta.y, xse = se.x, yse = se.y, xp = p.x, yp = p.y)
           res <- suppressMessages(TwoSampleMR::mr_ivw(dat$x, dat$y, dat$xse, dat$yse)) %>%
             {
-              tibble::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval, Q = .$Q, Q_pval = .$Q_pval, I2 = ((.$Q - length(dat$SNP)) / .$Q))
+              dplyr::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval, Q = .$Q, Q_pval = .$Q_pval, I2 = ((.$Q - length(dat$SNP)) / .$Q))
             }
           return(res)
         })
@@ -98,7 +98,7 @@ CAMERA$set("public", "instrument_heterogeneity", function(instrument = self$inst
             dplyr::select(SNP = SNP, x = beta.outcome.x, y = beta.outcome.y, xse = se.outcome.x, yse = se.outcome.y, xp = pval.outcome.x, yp = pval.outcome.y)
           res <- suppressMessages(TwoSampleMR::mr_ivw(dat$x, dat$y, dat$xse, dat$yse)) %>%
             {
-              tibble::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval, Q = .$Q, Q_pval = .$Q_pval, I2 = ((.$Q - length(dat$SNP)) / .$Q))
+              dplyr::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval, Q = .$Q, Q_pval = .$Q_pval, I2 = ((.$Q - length(dat$SNP)) / .$Q))
             }
           return(res)
         })
@@ -118,7 +118,7 @@ CAMERA$set("public", "instrument_heterogeneity", function(instrument = self$inst
             dplyr::select(SNP = rsid, x = beta.x, y = beta.y, xse = se.x, yse = se.y, xp = p.x, yp = p.y)
           res <- suppressMessages(TwoSampleMR::mr_simple_mode(dat$x, dat$y, dat$xse, dat$yse)) %>%
             {
-              tibble::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval)
+              dplyr::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval)
             }
           return(res)
         })
@@ -136,7 +136,7 @@ CAMERA$set("public", "instrument_heterogeneity", function(instrument = self$inst
             dplyr::select(SNP = SNP, x = beta.outcome.x, y = beta.outcome.y, xse = se.outcome.x, yse = se.outcome.y, xp = pval.outcome.x, yp = pval.outcome.y)
           res <- suppressMessages(TwoSampleMR::mr_simple_mode(dat$x, dat$y, dat$xse, dat$yse)) %>%
             {
-              tibble::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval)
+              dplyr::tibble(Reference = i, Replication = j, nsnp = length(unique(dat$SNP)), agreement = .$b, se = .$se, pval = .$pval)
             }
           return(res)
         })
