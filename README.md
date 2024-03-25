@@ -21,7 +21,7 @@ with:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("universe77/CAMERA")
+remotes::install_github("MRCIEU/CAMERA")
 ```
 
 ## Example
