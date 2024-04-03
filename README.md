@@ -1,8 +1,8 @@
 # Cross Ancestry Mendelian Randomisation
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/MRCIEU/CAMERA/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MRCIEU/CAMERA/actions/workflows/R-CMD-check.yaml)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
 
 The goal of CAMeRa is to estimate causal effects using summary
