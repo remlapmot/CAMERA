@@ -1,4 +1,5 @@
 test_that("initialization", {
+  skip("Skip unless you have good access to the API")
   x <- CAMERA$new(
     exposure_ids=c("ieu-a-2", "bbj-a-1"),
     outcome_ids=c("ieu-a-7", "bbj-a-109"),
@@ -11,6 +12,7 @@ test_that("initialization", {
 })
 
 test_that("extract_instrument", {
+  skip("Skip unless you have good access to the API")
   x <- CAMERA$new(
     exposure_ids=c("ieu-a-2", "bbj-a-1"),
     outcome_ids=c("ieu-a-7", "bbj-a-109"),
