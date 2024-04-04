@@ -18,8 +18,7 @@ Imports:
     ggplot2,
     ieugwasr (>= 0.1.8),
     magrittr,
-    tidyr,
-    utils
+    tidyr
 Suggests: 
     RadialMR,
     winnerscurse,
